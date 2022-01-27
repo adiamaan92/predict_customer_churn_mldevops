@@ -7,12 +7,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
+from matplotlib import rcParams
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
 from sklearn.model_selection import GridSearchCV, train_test_split
 
 sns.set()
+rcParams.update({"figure.autolayout": True})
 os.environ["QT_QPA_PLATFORM"] = "offscreen"
 
 # Define paths
