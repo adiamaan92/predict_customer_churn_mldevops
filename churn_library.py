@@ -310,7 +310,9 @@ def train_models(
         "criterion": ["gini", "entropy"],
     }
 
-    cv_rfc = GridSearchCV(estimator=rfc, param_grid=param_grid, cv=5)
+    cv_rfc = GridSearchCV(
+        estimator=rfc, param_grid=param_grid, cv=5, n_jobs=-1
+    )
     cv_rfc.fit(X_train, y_train)
 
     lrc.fit(X_train, y_train)
