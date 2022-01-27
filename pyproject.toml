@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "predict_customer_churn_mldevops"
+version = "0.1.0"
+description = ""
+authors = ["Adiamaan <mak.adi55@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pandas = "^1.4.0"
+matplotlib = "^3.5.1"
+seaborn = "^0.11.2"
+scikit-learn = "^1.0.2"
+shap = "^0.40.0"
+
+[tool.poetry.dev-dependencies]
+pylint = "^2.12.2"
+autopep8 = "^1.6.0"
+pytest = "^6.2.5"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 79
