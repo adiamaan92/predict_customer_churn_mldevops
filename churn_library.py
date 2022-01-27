@@ -36,7 +36,11 @@ def import_data(pth: str) -> pd.DataFrame:
 
 
 def plot_result(
-    df: pd.DataFrame, variable: str, plotter: Callable, path: str = eda_path
+    df: pd.DataFrame,
+    variable: str,
+    plotter: Callable,
+    title: str,
+    path: str = eda_path,
 ):
     """Plot the results given a dataframe, variable, a plotter function
     and a path to store
@@ -45,10 +49,12 @@ def plot_result(
         df (pd.DataFrame): Dataframe
         variable (str): Variable to use in plot
         plotter (Callable): Lambda plotter function
+        title (str): Title of the plot
         path (str, optional): [description]. Defaults to eda_path.
     """
     plt.figure(figsize=(20, 10))
     plotter(df, variable)
+    plt.title(title)
     plt.savefig(f"{path}/{variable.lower()}_distribution.png")
 
 
@@ -61,20 +67,32 @@ def perform_eda(df: pd.DataFrame):
     df["Churn"] = df["Attrition_Flag"].apply(
         lambda val: 0 if val == "Existing Customer" else 1
     )
-    plot_result(df, "Churn", lambda df, x: df[x].hist())
-    plot_result(df, "Customer_Age", lambda df, x: df[x].hist())
+    plot_result(df, "Churn", lambda df, x: df[x].hist(), "Churn Distribution")
+    plot_result(
+        df,
+        "Customer_Age",
+        lambda df, x: df[x].hist(),
+        "Customer Age Distribution",
+    )
     plot_result(
         df,
         "Marital_Status",
         lambda df, x: df[x].value_counts("normalize").plot(kind="bar"),
+        "Marital Status Distribution",
     )
-    plot_result(df, "Total_Trans_Ct", lambda df, x: sns.distplot(df[x]))
+    plot_result(
+        df,
+        "Total_Trans_Ct",
+        lambda df, x: sns.distplot(df[x]),
+        "Total Trans Distribution",
+    )
     plot_result(
         df,
         "Correlation_Plot",
         lambda df, x: sns.heatmap(
             df.corr(), annot=False, cmap="Dark2_r", linewidths=2
         ),
+        "Correlation Plot",
     )
 
 
