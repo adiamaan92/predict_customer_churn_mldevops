@@ -1,3 +1,17 @@
+"""
+Churn Script -> Logging and Tests
+---------------------------------
+
+This module is responsible for testing and logging of churn_script.py
+
+The following functions are available:
+    test_import()   -> Tests that given a valid path a df is returned
+    test_eda()      -> Tests that eda can be performed on the read dataset.
+    test_encoder_helper() -> Tests that encoding is successfule
+    test_perform_feature_engineering() -> Tests successful data splitting
+    test_train_models() -> Tests successful training of models
+
+"""
 import logging
 import os
 
@@ -83,7 +97,8 @@ def test_encoder_helper():
     df = encoder_helper(df, cat_cols)
 
     try:
-        assert df.columns.isin([col + "_Churn" for col in cat_cols]).all()
+        for col in cat_cols:
+            assert col + "_Churn" in df.columns
         logging.info("Testing encoder_help: SUCCESS")
     except AssertionError as err:
         logging.error("Columns missing")
@@ -104,8 +119,8 @@ def test_perform_feature_engineering():
     X_train, X_test, _, _ = perform_feature_engineering(df)
 
     try:
-        assert np.isclose(X_train.shape[1], df.shape[1] * 0.70)
-        assert np.isclose(X_test.shape[1], df.shape[1] * 0.30)
+        assert np.isclose(X_train.shape[0], df.shape[0] * 0.70, atol=1)
+        assert np.isclose(X_test.shape[0], df.shape[0] * 0.30, atol=1)
         logging.info("Testing perform_feature_engineering: SUCCESS")
     except AssertionError as err:
         logging.error("Data splitting error")
@@ -144,3 +159,7 @@ def test_train_models():
         logging.error("Model training error")
         logging.error(err)
         raise err
+
+
+if __name__ == "__main__":
+    test_perform_feature_engineering()
