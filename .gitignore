@@ -2,3 +2,6 @@
 .vscode
 *.ipynb
 models/*
+__pycache__
+.pytest_cache
+logs/*

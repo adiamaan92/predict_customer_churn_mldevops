@@ -1,4 +1,21 @@
-# library doc string
+"""
+Churn Library
+-------------
+
+This library contains functions for performing EDA, feature engineering,
+and model training.
+
+The following functions are available:
+1. import_data: Imports data given a file path
+2. perform_eda: Performs EDA and stores the resulting graphs in results_path
+3. perform_feature_engineering: Performs feature engineering
+4. train_model: Trains a model given a dataframe and a response variable
+
+The following variables are available:
+1. eda_path: Path to store the EDA graphs
+2. results_path: Path to store the results
+
+"""
 import os
 from typing import Any, Callable, List, Optional, Union
 

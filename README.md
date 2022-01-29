@@ -36,6 +36,14 @@ Poetry is used as the venv manager. The environment can be setup by following th
 The main churn prediction code can be run as,  
 `python churn_library.py`, which generates EDA plots, result plots and stores the models
 
+The testing script can be run as,
+`python churn_script_logging_and_tests.py`, which runs the tests and logs the results
+
+## 🎯 Pylint scores
+
+1. `pylint churn_library.py` yields a score of 7.17/10
+2. `pylint churn_script_logging_and_tests.py` yields a score of /10
+
 
 ## ✨ Additional improvements
 
