@@ -42,7 +42,7 @@ The testing script can be run as,
 ## 🎯 Pylint scores
 
 1. `pylint churn_library.py` yields a score of 7.17/10
-2. `pylint churn_script_logging_and_tests.py` yields a score of /10
+2. `pylint churn_script_logging_and_tests.py` yields a score of 7.14/10
 
 
 ## ✨ Additional improvements
