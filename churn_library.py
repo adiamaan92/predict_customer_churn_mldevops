@@ -194,11 +194,13 @@ def plot_scores(
         result
         output_pth ([str], optional): [description]. Defaults to results_path.
     """
-    plt.rc("figure", figsize=(5, 5))
+    plt.figure(figsize=(5, 5))
+    norm_model_str = model_str.replace("_", " ").title()
+    # plt.rc("figure", figsize=(5, 5))
     plt.text(
         0.01,
         1.25,
-        str(model_str),
+        norm_model_str,
         {"fontsize": 10},
         fontproperties="monospace",
     )
@@ -212,7 +214,7 @@ def plot_scores(
     plt.text(
         0.01,
         0.6,
-        str("Logistic Regression Test"),
+        norm_model_str + " Test",
         {"fontsize": 10},
         fontproperties="monospace",
     )
