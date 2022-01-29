@@ -11,7 +11,7 @@
 
 ![project1](/cover.png)
 
-This project predicts the customer churn in a bank using information available about them. This project is part of ML DevOps Engineer Nanodegree from Udacity. The idea is to **structure a simple ML project using the best practices borrowed from software engineering** including linting, static type checking, testing, logging, pre-commit, and adhering to the pep-8 style guide.
+This project predicts the customer churn in a bank. This project is part of ML DevOps Engineer Nanodegree from Udacity. The idea is to **structure a simple ML project using the best practices borrowed from software engineering**
 
 ## 💡 Project Description
 
