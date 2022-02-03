@@ -165,4 +165,8 @@ def test_train_models():
 
 
 if __name__ == "__main__":
+    test_import()
+    test_eda()
+    test_encoder_helper()
     test_perform_feature_engineering()
+    test_train_models()
