@@ -55,3 +55,4 @@ On top of the best practices required by the project the following improvements 
 - Flake8 for linting warnings
 - isort for sorting inputs
 - Pre-commit to check for flake8, isort, pytest, pylint and mypy warnings
+lgo

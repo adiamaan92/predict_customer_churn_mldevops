@@ -1,4 +1,7 @@
 """
+Author: Adiamaan Keerthi Matheswaran
+Date: 2022-02-03
+
 Churn Library
 -------------
 
