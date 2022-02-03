@@ -21,9 +21,9 @@ The primary task of this project is to follow the software engineering processes
 3. Unit test and logging
 
 
-## 🧰 Setting up environment
+## 🧰 Setting up the environment
 
-Poetry is used as the venv manager. The environment can be setup by following the steps,
+Poetry is used as the venv manager. The environment can be set up by following the steps,
 
 1. Install poetry  
 `pip install poetry`
@@ -34,7 +34,7 @@ Poetry is used as the venv manager. The environment can be setup by following th
 ## 🏃 Running Files
 
 The main churn prediction code can be run as,  
-`python churn_library.py`, which generates EDA plots, result plots and stores the models
+`python churn_library.py`, which generates EDA plots and result plots and stores the models
 
 The testing script can be run as,
 `python churn_script_logging_and_tests.py`, which runs the tests and logs the results
@@ -47,7 +47,7 @@ The testing script can be run as,
 
 ## ✨ Additional improvements
 
-On top of the best practices required by the project the following improvements are added as well,
+On top of the best practices required by the project, the following improvements are added as well,
 
 - Poetry for environment setup and reproducibility
 - Add typing information to all the functions
@@ -55,4 +55,3 @@ On top of the best practices required by the project the following improvements 
 - Flake8 for linting warnings
 - isort for sorting inputs
 - Pre-commit to check for flake8, isort, pytest, pylint and mypy warnings
-lgo
