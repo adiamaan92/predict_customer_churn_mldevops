@@ -30,7 +30,7 @@ import seaborn as sns
 from matplotlib import rcParams
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import classification_report
+from sklearn.metrics import classification_report, plot_roc_curve
 from sklearn.model_selection import GridSearchCV, train_test_split
 
 sns.set()
@@ -290,7 +290,7 @@ def classification_report_image(
 def feature_importance_plot(
     model: Union[RandomForestClassifier, LogisticRegression],
     X_data: pd.DataFrame,
-    output_pth=results_path,
+    output_pth: str = results_path,
 ):
     """
     Creates and stores the feature importances in pth
@@ -324,6 +324,20 @@ def feature_importance_plot(
 
     # Save the plot
     plt.savefig(f"{output_pth}/feature_importance.png")
+
+
+def plot_roc(
+    rf: RandomForestClassifier,
+    lr: LogisticRegression,
+    X_test: np.ndarray,
+    y_test: np.ndarray,
+    output_pth: str = results_path,
+):
+    plt.figure(figsize=(15, 8))
+    ax = plt.gca()
+    rfc_disp = plot_roc_curve(rf, X_test, y_test, ax=ax, alpha=0.8)
+    lrc_plot = plot_roc_curve(lr, X_test, y_test, ax=ax, alpha=0.8)
+    plt.savefig(f"{output_pth}/roc_curve.png")
 
 
 def train_models(
@@ -376,6 +390,7 @@ def train_models(
         "logistic_regression",
     )
     feature_importance_plot(cv_rfc, X_train)
+    plot_roc(cv_rfc.best_estimator_, lrc, X_test, y_test)
 
     joblib.dump(cv_rfc.best_estimator_, models_path + "rfc_model.pkl")
     joblib.dump(lrc, models_path + "logistic_model.pkl")
